@@ -1,0 +1,77 @@
+<div class="container p-4">
+    <div class="row">
+        <div class="col-sm-6"> 
+            <div class="card" >
+                <div class="card-body">
+                    <h2>Noticia:</h2>
+                    <p class="card-text">{{card.description}}</p>
+                </div>
+                {{#img_iter card.image_name}}{{/img_iter}}
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="card">
+                <form action="/notes/edit-notes/{{card._id}}" method="POST">
+                    <div class="form-group">
+                        <p> Marca las categorías que se presentan en la noticia antes descrita:</p>
+                    </div>
+                    <hr class="my-4">
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="robo" {{#checked label.robo}}{{/checked}}>
+                        <label class="form-check-label" for="flexSwitchCheckDefault">Robo</label>
+                    </div>
+                    
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="homicidio" {{#checked label.homicidio}}{{/checked}}>
+                        <label class="form-check-label" for="flexSwitchCheckDefault">Homicidio</label>
+                    </div>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="secuestro" {{#checked label.secuestro}}{{/checked}}>
+                        <label class="form-check-label" for="flexSwitchCheckDefault">Secuestro</label>
+                    </div>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="violencia" {{#checked label.violencia}}{{/checked}}>
+                        <label class="form-check-label" for="flexSwitchCheckDefault">Violencia</label>
+                    </div>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="d_sexual" {{#checked label.d_sexual}}{{/checked}}>
+                        <label class="form-check-label" for="flexSwitchCheckDefault">Delito sexual</label>
+                    </div>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="d_organizada" {{#checked label.d_organizada}}{{/checked}}>
+                        <label class="form-check-label" for="flexSwitchCheckDefault">Delincuencia organizada</label>
+                    </div>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="narcotrafico" {{#checked label.narcotrafico}}{{/checked}}>
+                        <label class="form-check-label" for="flexSwitchCheckDefault">Narcotrafico</label>
+                    </div>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="suicidio" {{#checked label.suicidio}}{{/checked}}>
+                        <label class="form-check-label" for="flexSwitchCheckDefault">Suicidio</label>
+                    </div>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="accidente" {{#checked label.accidente}}{{/checked}}>
+                        <label class="form-check-label" for="flexSwitchCheckDefault">Accidente</label>
+                    </div>
+                    <hr class="my-4">
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="ninguno" {{#checked label.ninguno}}{{/checked}}>
+                        <label class="form-check-label" for="flexSwitchCheckDefault">Ninguno de los anteriores</label>
+                    </div>
+                    
+                    <hr class="my-4">
+                    <div class="form-check form-switch">
+                        <label class="form-check-label" for="flexSwitchCheckDefault">La(s) imagen(es) presenta(n) una representación grafica del crimen:</label>
+                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="representacion_grafica" {{#checked label.representacion_grafica}}{{/checked}}>
+                    </div>
+                    <hr class="my-4">
+                    <div class="form-group">
+                        <button class="btn btn-primary w-100" type="submit">
+                            Save
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

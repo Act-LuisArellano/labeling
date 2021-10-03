@@ -1,0 +1,31 @@
+{{!-- <div class="row">
+    {{#each card}}
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class='card-title d-flex justify-content-between align-items-center'><i class='fas fa-edit'></i></h4>
+                    <p>{{description}}</p>
+                </div>
+            </div>
+        </div>
+    {{/each}}
+</div> --}}
+
+<div class="container p-4">
+    <div class="row">
+        {{#each cards}}
+            <div class="col-sm-4"> 
+                <div class="card" >
+                    <img src="/ejemplos/{{img0 image_name}}" class="card-img-top">
+                    <div class="card-body">
+                        {{#complete _id ../ids_ejemplos }}{{/complete}}
+                        <p class="card-text">{{description}}</p>
+                        <a href="/notes/edit/{{_id}}" class="btn btn-primary w-100">
+                            Edit
+                        </a>
+                    </div>
+                </div>    
+            </div>
+        {{/each}}
+    </div>
+</div>
