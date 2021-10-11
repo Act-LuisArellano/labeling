@@ -35,7 +35,9 @@ const hbs = exphbs.create({
         },
         complete: (id_card,ids_ejemplos) =>{
             if(ids_ejemplos.includes(id_card.toString())){
-                return '<h4 class="card-title d-flex justify-content-between align-items-center"><i class="far fa-check-square"></i></h4>';
+                return '<h4 class="card-title d-flex justify-content-between align-items-center"><i class="far fa-check-square" id="faicon"></i></h4>';
+            }else{
+                return '<h4 class="card-title d-flex justify-content-between align-items-center"><i class="fas fa-pencil-alt" id="faicon_pencil"></i></h4>';
             }
         },
         checked:(categoria)=>{
