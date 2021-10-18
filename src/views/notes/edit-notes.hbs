@@ -17,53 +17,52 @@
                     </div>
                     <hr class="my-4">
                     <div class="form-check form-switch">
-                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="robo" {{#checked label.robo}}{{/checked}}>
-                        <label class="form-check-label" for="flexSwitchCheckDefault" data-toggle="tooltip" data-placement="top" title="apoderamiento o destrucción dolosa de una cosa ajena sin derecho y sin consentimiento de la persona que legalmente pueda disponer de los mismos">Robo</label>
+                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault1" name="robo" {{#checked label.robo}}{{/checked}}>
+                        <label class="form-check-label" for="flexSwitchCheckDefault1" data-toggle="tooltip" data-placement="top" title="apoderamiento o destrucción dolosa de una cosa ajena sin derecho y sin consentimiento de la persona que legalmente pueda disponer de los mismos">Robo</label>
+                    </div>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault2" name="homicidio" {{#checked label.homicidio}}{{/checked}}>
+                        <label class="form-check-label" for="flexSwitchCheckDefault2" data-toggle="tooltip" data-placement="top" title="privación de la vida">Homicidio</label>
+                    </div>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault3" name="secuestro" {{#checked label.secuestro}}{{/checked}}>
+                        <label class="form-check-label" for="flexSwitchCheckDefault3" data-toggle="tooltip" data-placement="top" title="privación de la libertad">Secuestro</label>
+                    </div>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault4" name="violencia" {{#checked label.violencia}}{{/checked}}>
+                        <label class="form-check-label" for="flexSwitchCheckDefault4" data-toggle="tooltip" data-placement="top" title="actos o presión psicológica que hacen desaparecer la voluntad de la víctima">Violencia</label>
+                    </div>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault5" name="d_sexual" {{#checked label.d_sexual}}{{/checked}}>
+                        <label class="form-check-label" for="flexSwitchCheckDefault5" data-toggle="tooltip" data-placement="top" title="perjuicio de la libertad sexual, la indemnidad sexual, la dignidad y/o el desarrollo de la sexualidad">Delito sexual</label>
+                    </div>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault6" name="d_organizada" {{#checked label.d_organizada}}{{/checked}}>
+                        <label class="form-check-label" for="flexSwitchCheckDefault6" data-toggle="tooltip" data-placement="top" title="delitos ocasionados por asociación o banda de tres o más personas con el propósito de delinquir">Delincuencia organizada</label>
+                    </div>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault7" name="narcotrafico" {{#checked label.narcotrafico}}{{/checked}}>
+                        <label class="form-check-label" for="flexSwitchCheckDefault7" data-toggle="tooltip" data-placement="top" title="producción y comercio de narcóticos señalados por el código penal federal, sin la autorización correspondiente">Narcotrafico</label>
+                    </div>
+                    <hr class="my-4">
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault8" name="suicidio" {{#checked label.suicidio}}{{/checked}}>
+                        <label class="form-check-label" for="flexSwitchCheckDefault8" data-toggle="tooltip" data-placement="top" title="acto por el que una persona se provoca la muerte de forma intencionada">Suicidio</label>
+                    </div>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault9" name="accidente" {{#checked label.accidente}}{{/checked}}>
+                        <label class="form-check-label" for="flexSwitchCheckDefault9" data-toggle="tooltip" data-placement="top" title="suceso eventual o acción de que resulta daño involuntario para las personas o las cosas">Accidente</label>
+                    </div>
+                    <hr class="my-4">
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault10" name="ninguno" {{#checked label.ninguno}}{{/checked}}>
+                        <label class="form-check-label" for="flexSwitchCheckDefault10">Ninguno de los anteriores</label>
                     </div>
                     
-                    <div class="form-check form-switch">
-                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="homicidio" {{#checked label.homicidio}}{{/checked}}>
-                        <label class="form-check-label" for="flexSwitchCheckDefault" data-toggle="tooltip" data-placement="top" title="privación de la vida">Homicidio</label>
-                    </div>
-                    <div class="form-check form-switch">
-                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="secuestro" {{#checked label.secuestro}}{{/checked}}>
-                        <label class="form-check-label" for="flexSwitchCheckDefault" data-toggle="tooltip" data-placement="top" title="privación de la libertad">Secuestro</label>
-                    </div>
-                    <div class="form-check form-switch">
-                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="violencia" {{#checked label.violencia}}{{/checked}}>
-                        <label class="form-check-label" for="flexSwitchCheckDefault" data-toggle="tooltip" data-placement="top" title="actos o presión psicológica que hacen desaparecer la voluntad de la víctima">Violencia</label>
-                    </div>
-                    <div class="form-check form-switch">
-                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="d_sexual" {{#checked label.d_sexual}}{{/checked}}>
-                        <label class="form-check-label" for="flexSwitchCheckDefault" data-toggle="tooltip" data-placement="top" title="perjuicio de la libertad sexual, la indemnidad sexual, la dignidad y/o el desarrollo de la sexualidad">Delito sexual</label>
-                    </div>
-                    <div class="form-check form-switch">
-                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="d_organizada" {{#checked label.d_organizada}}{{/checked}}>
-                        <label class="form-check-label" for="flexSwitchCheckDefault" data-toggle="tooltip" data-placement="top" title="delitos ocasionados por asociación o banda de tres o más personas con el propósito de delinquir">Delincuencia organizada</label>
-                    </div>
-                    <div class="form-check form-switch">
-                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="narcotrafico" {{#checked label.narcotrafico}}{{/checked}}>
-                        <label class="form-check-label" for="flexSwitchCheckDefault" data-toggle="tooltip" data-placement="top" title="producción y comercio de narcóticos señalados por el código penal federal, sin la autorización correspondiente">Narcotrafico</label>
-                    </div>
                     <hr class="my-4">
                     <div class="form-check form-switch">
-                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="suicidio" {{#checked label.suicidio}}{{/checked}}>
-                        <label class="form-check-label" for="flexSwitchCheckDefault" data-toggle="tooltip" data-placement="top" title="acto por el que una persona se provoca la muerte de forma intencionada">Suicidio</label>
-                    </div>
-                    <div class="form-check form-switch">
-                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="accidente" {{#checked label.accidente}}{{/checked}}>
-                        <label class="form-check-label" for="flexSwitchCheckDefault" data-toggle="tooltip" data-placement="top" title="suceso eventual o acción de que resulta daño involuntario para las personas o las cosas">Accidente</label>
-                    </div>
-                    <hr class="my-4">
-                    <div class="form-check form-switch">
-                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="ninguno" {{#checked label.ninguno}}{{/checked}}>
-                        <label class="form-check-label" for="flexSwitchCheckDefault">Ninguno de los anteriores</label>
-                    </div>
-                    
-                    <hr class="my-4">
-                    <div class="form-check form-switch">
-                        <label class="form-check-label" for="flexSwitchCheckDefault">La(s) imagen(es) presenta(n) una representación grafica de la noticia</label>
-                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="representacion_grafica" {{#checked label.representacion_grafica}}{{/checked}}>
+                        <label class="form-check-label" for="flexSwitchCheckDefault11">La(s) imagen(es) presenta(n) una representación grafica de la noticia</label>
+                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault11" name="representacion_grafica" {{#checked label.representacion_grafica}}{{/checked}}>
                     </div>
                     <hr class="my-4">
                     <div class="form-group">
