@@ -1,6 +1,9 @@
 const express = require('express');
 const router = express.Router();
 
+const { PutItemCommand } = require("@aws-sdk/client-dynamodb");
+const { ddbClient } = require("../libs/ddbClient.js");
+
 const User = require('../models/User');
 const Asignation = require('../models/Asignation');
 
@@ -48,6 +51,31 @@ router.post('/users/signup', async (req, res)=>{
         const newUser = new User({name, email, password,'asignation':code});
         newUser.password = await newUser.encryptPassword(password);
         await newUser.save();
+        // ---------------------AWS SAVE USER------------------------------
+        const hoy = new Date();
+        hoy.setTime(hoy.getTime());
+        const user_params = {
+            TableName: "users",
+            Item: {
+              _id: { S: newUser._id.toString() },
+              name: { S: newUser.name },
+              email: { S: newUser.email },
+              password: { S: newUser.password },
+              asignation: { S: newUser.asignation },
+              date: {S : hoy.toISOString()},
+            },
+          };
+          
+          const run = async () => {
+            try {
+              const data = await ddbClient.send(new PutItemCommand(user_params));
+              return data;
+            } catch (err) {
+              console.error(err);
+            }
+          };
+        run();
+        // ---------------------------------------------------------------------
         req.flash('success_msg','You are registered');
         res.redirect('/users/signin');
     }

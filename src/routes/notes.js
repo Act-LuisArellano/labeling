@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
-
+const { PutItemCommand } = require("@aws-sdk/client-dynamodb");
+const { ddbClient } = require("../libs/ddbClient.js");
 const Note = require('../models/Note');
 const Asignation = require('../models/Asignation');
 const Card = require('../models/Card');
@@ -60,6 +61,41 @@ router.post('/notes/edit-notes/:id', isAuthenticated , async (req,res)=>{
         'ninguno': TF_category(ninguno),
         'representacion_grafica': TF_category(representacion_grafica)
     },{new: true, upsert: true})
+    // ---------------------AWS SAVE LABEL------------------------------
+
+    const hoy = new Date();
+    hoy.setTime(hoy.getTime());
+
+    const label_params = {
+    TableName: "labels",
+    Item: {
+        _id: { S: label._id.toString() },
+        id_ejemplo: { S: label.id_ejemplo },
+        id_user: { S: label.id_user },
+        accidente: {BOOL: label.accidente},
+        d_organizada: {BOOL: label.d_organizada},
+        d_sexual: {BOOL: label.d_sexual},
+        homicidio: {BOOL: label.homicidio},
+        narcotrafico: {BOOL: label.narcotrafico},
+        ninguno: {BOOL: label.ninguno},
+        representacion_grafica: {BOOL: label.representacion_grafica},
+        robo: {BOOL: label.robo},
+        secuestro: {BOOL: label.secuestro},
+        suicidio: {BOOL: label.suicidio},
+        violencia: {BOOL: label.violencia},
+        date: {S : hoy.toISOString()},
+    },
+    };
+    const run = async () => {
+        try {
+            const data = await ddbClient.send(new PutItemCommand(label_params)); 
+            return data;
+        } catch (err) {
+            console.error(err);
+        }
+    };
+    run();
+    // ----------------------------------------------------------------
     req.flash('success_msg','Label added successfully');
     res.redirect('/notes');
 });
