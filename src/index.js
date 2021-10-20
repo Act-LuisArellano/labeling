@@ -29,7 +29,7 @@ const hbs = exphbs.create({
         img_iter: (image_name)=>{
             out='';
             image_name.split(',').forEach((image)=>{
-                out=out+ "<img src='https://tweets-ejemplos.s3.us-west-2.amazonaws.com/" + image + "' class='card-img-bot'></img>";
+                out=out+ "<img src='" + image + "' class='card-img-bot'></img>";
             });
             return out;
         },
