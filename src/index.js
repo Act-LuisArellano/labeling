@@ -44,6 +44,18 @@ const hbs = exphbs.create({
             if(categoria){
                 return "checked";
             }
+        },
+        for: function(num_page, block) {
+            n=Math.min(19,Math.max(3,num_page));
+            var accum = '';
+            for(var i = (n-2); i <= (n+2); i += 1)
+                accum += block.fn(i);
+            return accum;
+        },
+        page_ind: (i,num)=>{
+            if(num==i){
+                return 'id="actual_page"';
+            }
         }
     }
 });

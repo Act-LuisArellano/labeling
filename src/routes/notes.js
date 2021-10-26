@@ -9,9 +9,15 @@ const Label = require('../models/Label');
 
 const { isAuthenticated } = require('../helpers/auth');
 
-router.get('/notes', isAuthenticated , async (req, res)=>{
+var num_page=1;
+
+router.get('/notes/:page', isAuthenticated , async (req, res)=>{
     const asignation = await Asignation.findById(req.user.asignation);
-    const cards = await Card.find({_id:{$in:asignation.ids_ejemplo.split(',')}}).lean();
+    // const cards = await Card.find({_id:{$in:asignation.ids_ejemplo.split(',')}}).lean();
+    // console.log(cards);
+    const p_cards = await Card.paginate({_id:{$in:asignation.ids_ejemplo.split(',')}}, {limit:12,lean:true,page: req.params.page});
+    const cards = p_cards.docs;
+    // console.log(p_cards);
     const userid= req.user.id;
     const ids = [];
     cards.forEach((card)=>{
@@ -26,8 +32,8 @@ router.get('/notes', isAuthenticated , async (req, res)=>{
     p_label.forEach((label)=>{
         ids_ejemplos.push(label.id_ejemplo);
     });
-
-    res.render('notes/all-notes', {cards,ids_ejemplos});
+    num_page=req.params.page;
+    res.render('notes/all-notes', {cards,ids_ejemplos,num_page});
 });
 
 router.get('/notes/edit/:id', isAuthenticated , async (req,res)=>{
@@ -97,7 +103,7 @@ router.post('/notes/edit-notes/:id', isAuthenticated , async (req,res)=>{
     run();
     // ----------------------------------------------------------------
     req.flash('success_msg','Label added successfully');
-    res.redirect('/notes');
+    res.redirect('/notes/'+num_page);
 });
 
 

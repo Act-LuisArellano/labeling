@@ -15,7 +15,7 @@
     <div class="row">
         {{#each cards}}
             <div class="col-sm-4"> 
-                <div class="card" >
+                <div class="card" id="{{img0 image_name}}">
                     <img src="{{img0 image_name}}" class="card-img-top">
                     <div class="card-body">
                         {{#complete _id ../ids_ejemplos }}{{/complete}}
@@ -29,3 +29,12 @@
         {{/each}}
     </div>
 </div>
+<nav aria-label="Page navigation example">
+  <ul class="pagination justify-content-center">
+    <li class="page-item"><a class="page-link" href="/notes/1">First</a></li>
+    {{#for num_page}}
+        <li class="page-item"><a class="page-link" href="/notes/{{this}}" {{{page_ind this ../num_page}}}>{{this}}</a></li>
+    {{/for}}
+    <li class="page-item"><a class="page-link" href="/notes/21">Last</a></li>
+  </ul>
+</nav>
