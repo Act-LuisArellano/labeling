@@ -10,6 +10,7 @@ const Label = require('../models/Label');
 const { isAuthenticated } = require('../helpers/auth');
 
 router.get('/notes/:page', isAuthenticated , async (req, res)=>{
+    req.session.num_page=req.params.page;
     const asignation = await Asignation.findById(req.user.asignation);
     // const cards = await Card.find({_id:{$in:asignation.ids_ejemplo.split(',')}}).lean();
     // console.log(cards);
@@ -30,7 +31,7 @@ router.get('/notes/:page', isAuthenticated , async (req, res)=>{
     p_label.forEach((label)=>{
         ids_ejemplos.push(label.id_ejemplo);
     });
-    num_page=p_cards.page;
+    num_page=req.session.num_page;
     res.render('notes/all-notes', {cards,ids_ejemplos,num_page});
 });
 
@@ -101,7 +102,7 @@ router.post('/notes/edit-notes/:id', isAuthenticated , async (req,res)=>{
     run();
     // ----------------------------------------------------------------
     req.flash('success_msg','Label added successfully');
-    res.redirect('/notes/'+num_page);
+    res.redirect('/notes/'+req.session.num_page);
 });
 
 
