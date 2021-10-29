@@ -30,7 +30,7 @@ router.get('/notes/:page', isAuthenticated , async (req, res)=>{
     p_label.forEach((label)=>{
         ids_ejemplos.push(label.id_ejemplo);
     });
-    num_page=req.params.page;
+    num_page=p_cards.page;
     res.render('notes/all-notes', {cards,ids_ejemplos,num_page});
 });
 
